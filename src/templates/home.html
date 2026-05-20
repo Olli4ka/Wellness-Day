@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Wellness Day
+{% endblock %}
+
+{% block content %}
+
+<div class="card shadow-sm border-0 mb-5">
+    <div class="card-body p-5">
+
+        <h1 class="display-5 fw-bold mb-3">
+            Healthy Lifestyle Conference 2026
+        </h1>
+
+        <p class="lead text-muted">
+            Join our one-day event dedicated to healthy living,
+            nutrition, fitness, and mental well-being.
+        </p>
+
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+
+    <div class="card-body p-4">
+
+        <h2 class="mb-4">
+            Conference Schedule
+        </h2>
+
+        <div class="table-responsive">
+
+            <table class="table table-bordered table-hover align-middle">
+
+                <thead class="table-success">
+                    <tr>
+                        <th colspan="4" class="text-center">
+                            Healthy Lifestyle Conference Program
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th>Time</th>
+                        <th>Topic</th>
+                        <th>Speaker</th>
+                        <th>Format</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>09:00 – 10:00</td>
+                        <td>Healthy Nutrition Basics</td>
+                        <td rowspan="2">Olivia Wilson</td>
+                        <td>Lecture</td>
+                    </tr>
+
+                    <tr>
+                        <td>10:00 – 11:00</td>
+                        <td>Vitamins and Micronutrient Balance</td>
+                        <td>Seminar</td>
+                    </tr>
+
+                    <tr>
+                        <td>11:30 – 12:30</td>
+                        <td colspan="2">
+                            Active Lifestyle and Physical Activity
+                        </td>
+                        <td>Workshop</td>
+                    </tr>
+
+                    <tr>
+                        <td>13:30 – 14:30</td>
+                        <td>Mental Health and Emotional Balance</td>
+                        <td rowspan="2">John Doe</td>
+                        <td>Lecture</td>
+                    </tr>
+
+                    <tr>
+                        <td>14:30 – 15:30</td>
+                        <td>Stress Management Techniques</td>
+                        <td>Training</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div class="mt-4">
+
+            <p class="fs-5">
+                Want to participate in the conference?
+                Register now and reserve your place.
+            </p>
+
+            <a href="{% url 'register' %}"
+               class="btn btn-success btn-lg">
+                Register Now
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

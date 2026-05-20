@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Registration
+{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+
+    <div class="col-lg-8">
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body p-5">
+
+                <h1 class="mb-4">
+                    Conference Registration
+                </h1>
+
+                <p class="text-muted mb-4">
+                    Fill out the form below to register for the event.
+                </p>
+
+                <form method="post" novalidate>
+
+                    {% csrf_token %}
+
+                    <!-- NON FIELD ERRORS -->
+
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-danger">
+
+                            {% for error in form.non_field_errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+
+                        </div>
+                    {% endif %}
+
+                    <!-- FORM FIELDS -->
+
+                    {% for field in form %}
+
+                        <div class="mb-3">
+
+                            {% if field.name != 'agree_terms' %}
+
+                                <label class="form-label">
+                                    {{ field.label }}
+                                </label>
+
+                                {{ field }}
+
+                            {% else %}
+
+                                <div class="form-check">
+
+                                    {{ field }}
+
+                                    <label class="form-check-label">
+                                        {{ field.label }}
+                                    </label>
+
+                                </div>
+
+                            {% endif %}
+
+                            <!-- ERRORS -->
+
+                            {% if field.errors %}
+
+                                {% for error in field.errors %}
+                                    <div class="text-danger small mt-1">
+                                        {{ error }}
+                                    </div>
+                                {% endfor %}
+
+                            {% endif %}
+
+                        </div>
+
+                    {% endfor %}
+
+                    <button type="submit"
+                            class="btn btn-success btn-lg">
+                        Submit Registration
+                    </button>
+
+                    <a href="{% url 'home' %}"
+                       class="btn btn-outline-secondary btn-lg">
+                        Back
+                    </a>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
