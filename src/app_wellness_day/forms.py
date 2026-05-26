@@ -189,18 +189,21 @@ class RegistrationForm(forms.Form):
         workshops = cleaned_data.get('workshops')
 
         if age and activity_level:
-
             if age < 25 and activity_level == 'athlete':
-                raise ValidationError(
+                self.add_error(
+                    'activity_level',
                     'Athlete level is available only for participants aged 25 or older.'
                 )
+
         if activity_level == 'athlete' and dietary_preference == 'none':
-            raise ValidationError(
+            self.add_error(
+                'dietary_preference',
                 'Athlete participants must select a dietary preference for nutrition planning.'
             )
 
         if workshops and len(workshops) > 2:
-            raise forms.ValidationError(
+            self.add_error(
+                'workshops',
                 "You can select a maximum of 2 workshops only."
             )
 
