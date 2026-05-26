@@ -182,7 +182,7 @@ http://127.0.0.1:8000/
    * user is redirected to home page
 6. If invalid:
 
-![invalid.png](src/static/images/invalid.png)
+![errors.png](src/static/images/errors.png)
 
    * errors are shown next to fields
 
